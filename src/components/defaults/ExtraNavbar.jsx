@@ -34,7 +34,7 @@ const ExtraNavbar = () => {
         <div
           className={`bg-transparent rounded-full container mx-auto flex justify-center items-center p-4`}
         >
-          <img src={logo2} alt="Better Business Sales" className="h-28 w-1/2" />
+          <img src={logo2} alt="Better Business Sales" className="h-28 w-1/2 bg-blue-50 " />
         </div>
       </header>
     </>

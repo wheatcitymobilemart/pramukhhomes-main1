@@ -27,7 +27,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Column 1: About Section */}
         <div>
-          <img src={logo2} alt="Wheat City Mobile Mart" className="h-16 w-40 md:mb-4" />
+          <img src={logo2} alt="Wheat City Mobile Mart" className="h-16 w-40 md:mb-4 bg-blue-50" />
 
           <h2 className="text-2xl font-bold mb-5">Wheat City Mobile Mart</h2>
           <p className="mb-4">

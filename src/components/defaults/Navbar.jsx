@@ -41,7 +41,7 @@ const Navbar = () => {
       href: "#",
       dropdown: [
         { name: "Iphone", href: "/DeviceRepairBooking" },
-        { name: "Samsung", href: "/WhatWeDo" },
+        { name: "Samsung", href: "/Samsung" },
         { name: "Battery", href: "/WhatWeDo" },
         { name: "Screen", href: "/WhatWeDo" },
         { name: "Charging Port", href: "/WhatWeDo" },
@@ -128,7 +128,7 @@ const Navbar = () => {
           hideExtraNavbar ? "hidden" : ""
         }`}
       >
-        <img src={logo2} alt="Better Business Sales" className="h-28 w-1/2 " />
+        <img src={logo2} alt="Better Business Sales" className="h-28 w-1/2 bg-blue-50 " />
       </div>
       {isMobileOrTablet ? (
         <nav className={navbarStyles.backgroundColor}>

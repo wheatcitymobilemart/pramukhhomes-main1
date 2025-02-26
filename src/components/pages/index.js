@@ -17,4 +17,5 @@ import BlogDetail from "./BlogDetail";
 import ClientTestimonials from "./ClientTestimonials";
 import CellPhoneShop from "./CellPhoneShop";
 import DeviceRepairBooking from "./DeviceRepairBooking";
-export { Home, ForSale, ForRent, NewProperty, Blogs, ContactUs, NewAdded, Looking, WhyUs, Services, AboutUs, WhatWeDo, HowWeWork, DetailedView, BlogDetail, ClientTestimonials,CellPhoneShop,DeviceRepairBooking };
+import Samsung from "./Samsung";
+export { Home, ForSale, ForRent, NewProperty, Blogs, ContactUs, NewAdded, Looking, WhyUs, Services, AboutUs, WhatWeDo, HowWeWork, DetailedView, BlogDetail, ClientTestimonials,CellPhoneShop,DeviceRepairBooking,Samsung };
