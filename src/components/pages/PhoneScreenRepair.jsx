@@ -13,7 +13,7 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const SamsungRepair = () => {
+const PhoneScreenRepair = () => {
   const navigate = useNavigate();
   
   const handleClick = () => {
@@ -36,17 +36,17 @@ const SamsungRepair = () => {
             shadow={false}
           >
             <img
-              src="https://tse3.mm.bing.net/th?id=OIP.GZVyblyha-FKv3QPeHvwCwHaE8&w=316&h=316&c=7"
-              alt="Samsung Phone Repair"
-              className="w-full h-full  rounded-md"
+              src="https://tse2.mm.bing.net/th?id=OIP.mxcA3bLfAvR5bGSMp1WUKwHaFj&w=355&h=355&c=7"
+              alt="Phone Screen Repair"
+              className="w-full h-full object-fit rounded-md"
             />
           </CardHeader>
           <CardBody className="lg:w-1/2 p-8">
             <Typography variant="h2" className="text-gray-800 mb-4">
-              Samsung Mobile Repair Experts
+              Phone Screen Replacement
             </Typography>
             <Typography className="text-gray-700 text-lg leading-relaxed">
-              We specialize in Samsung mobile repairs, offering fast and reliable services for screen replacement, battery issues, water damage, software troubleshooting, and more. Trust our skilled technicians to restore your device to its best condition.
+              Cracked or broken screen? Our expert technicians offer quick and reliable phone screen replacements to make your device look brand new. We use high-quality screens for the best display clarity and touch sensitivity.
             </Typography>
             <br />
             <button
@@ -62,4 +62,4 @@ const SamsungRepair = () => {
   );
 };
 
-export default SamsungRepair;
+export default PhoneScreenRepair;

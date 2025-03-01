@@ -13,7 +13,7 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const SamsungRepair = () => {
+const PhoneBatteryRepair = () => {
   const navigate = useNavigate();
   
   const handleClick = () => {
@@ -36,17 +36,17 @@ const SamsungRepair = () => {
             shadow={false}
           >
             <img
-              src="https://tse3.mm.bing.net/th?id=OIP.GZVyblyha-FKv3QPeHvwCwHaE8&w=316&h=316&c=7"
-              alt="Samsung Phone Repair"
-              className="w-full h-full  rounded-md"
+              src="https://tse1.mm.bing.net/th?id=OIP.VM17EDx5ja0ckMUV1wX0MwHaHa&w=474&h=474&c=7"
+              alt="Phone Battery Repair"
+              className="w-full h-full object-cover rounded-md"
             />
           </CardHeader>
           <CardBody className="lg:w-1/2 p-8">
             <Typography variant="h2" className="text-gray-800 mb-4">
-              Samsung Mobile Repair Experts
+              Phone Battery Replacement
             </Typography>
             <Typography className="text-gray-700 text-lg leading-relaxed">
-              We specialize in Samsung mobile repairs, offering fast and reliable services for screen replacement, battery issues, water damage, software troubleshooting, and more. Trust our skilled technicians to restore your device to its best condition.
+              Experiencing battery issues? Our experts provide fast and efficient phone battery replacements to restore your device's power and longevity. Get your battery replaced today with high-quality parts and expert service.
             </Typography>
             <br />
             <button
@@ -62,4 +62,4 @@ const SamsungRepair = () => {
   );
 };
 
-export default SamsungRepair;
+export default PhoneBatteryRepair;

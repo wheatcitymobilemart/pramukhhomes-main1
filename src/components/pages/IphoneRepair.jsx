@@ -13,10 +13,10 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
-const SamsungRepair = () => {
+const IphoneRepair = () => {
   const navigate = useNavigate();
   
-  const handleClick = () => {
+  const handleClick = () => {    
     navigate("/DeviceRepairBooking");
   };
   
@@ -36,17 +36,17 @@ const SamsungRepair = () => {
             shadow={false}
           >
             <img
-              src="https://tse3.mm.bing.net/th?id=OIP.GZVyblyha-FKv3QPeHvwCwHaE8&w=316&h=316&c=7"
-              alt="Samsung Phone Repair"
-              className="w-full h-full  rounded-md"
+              src="https://images.pexels.com/photos/6074938/pexels-photo-6074938.jpeg"
+              alt="iPhone Repair"
+              className="w-full h-full object-cover rounded-md"
             />
           </CardHeader>
           <CardBody className="lg:w-1/2 p-8">
             <Typography variant="h2" className="text-gray-800 mb-4">
-              Samsung Mobile Repair Experts
+              iPhone Repair Services
             </Typography>
             <Typography className="text-gray-700 text-lg leading-relaxed">
-              We specialize in Samsung mobile repairs, offering fast and reliable services for screen replacement, battery issues, water damage, software troubleshooting, and more. Trust our skilled technicians to restore your device to its best condition.
+              Need an iPhone repair? We provide expert services, including screen replacements, battery replacements, water damage repairs, and more. Trust our skilled technicians to restore your iPhone to perfect condition.
             </Typography>
             <br />
             <button
@@ -62,4 +62,4 @@ const SamsungRepair = () => {
   );
 };
 
-export default SamsungRepair;
+export default IphoneRepair;
