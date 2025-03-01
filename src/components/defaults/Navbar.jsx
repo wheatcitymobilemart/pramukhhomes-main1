@@ -53,7 +53,7 @@ const Navbar = () => {
     { name: "Our Services", href: "/OurServices" },
     { name: "Cell Phone", href: "/CellPhoneShop" },
     { name: "Pre Owned Phones", href: "/PreOwnedPhones" },
-    // { name: "Warranty", href: "/WarrantyPage" },
+    
     {
       name: "Our Company",
       href: "#",
@@ -63,6 +63,7 @@ const Navbar = () => {
         { name: "How We Work", href: "/HowWeWork" },
         { name: "About Us", href: "/AboutUs" },
         { name: "Blogs", href: "/Blogs" },
+        { name: "Warranty", href: "/WarrantyPage" },
       ],
     },
     { name: "Contact Us", href: "/ContactUs" },
