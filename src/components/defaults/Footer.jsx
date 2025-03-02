@@ -77,7 +77,7 @@ const Footer = () => {
                   className="transition-all  ease-in-out group-hover:text-yellow-600"
                 >
                   <span className="transition-all  ease-in-out group-hover:text-yellow-600">
-                  710 18th St, Brandon, MB R7B1K7
+                  710 18th St, Brandon, MB R7A 5B5
                   <br />
                   </span>
                   Wheat City Mobile Mart

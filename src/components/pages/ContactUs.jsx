@@ -42,7 +42,7 @@ const ContactUs = () => {
                 <p className="text-base md:text-lg lg:text-xl">
                 710 18th St, Brandon, 
                 <br />
-                MB R7B1K7
+                MB R7A 5B5
                   <br />
                 Wheat City Mobile Mart
                 </p>
