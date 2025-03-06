@@ -10,3 +10,4 @@ export { default as NewCardComponent } from './NewCardComponent';
 export { default as DetailedViewCardComponent } from './DetailedViewCardComponent';
 export { default as Map } from './Map';
 export { default as Blog } from './Blog';
+export { default as ProductCard} from './ProductCard';

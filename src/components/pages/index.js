@@ -24,4 +24,5 @@ import PhoneChargingPortRepair from "./PhoneChargingPortRepair";
 import IphoneRepair from "./IphoneRepair";
 import PreOwnedPhones from "./PreOwnedPhones";
 import WarrantyPage from "./WarrantyPage";
-export { Home, ForSale, ForRent, NewProperty, Blogs, ContactUs, NewAdded, Looking, WhyUs, Services, AboutUs, WhatWeDo, HowWeWork, DetailedView, BlogDetail, ClientTestimonials,CellPhoneShop,DeviceRepairBooking,Samsung,PhoneBatteryRepair,PhoneScreenRepair,PhoneChargingPortRepair,IphoneRepair,PreOwnedPhones,WarrantyPage };
+import EcommercePage from "./EcommercePage";
+export { Home, ForSale, ForRent, NewProperty, Blogs, ContactUs, NewAdded, Looking, WhyUs, Services, AboutUs, WhatWeDo, HowWeWork, DetailedView, BlogDetail, ClientTestimonials,CellPhoneShop,DeviceRepairBooking,Samsung,PhoneBatteryRepair,PhoneScreenRepair,PhoneChargingPortRepair,IphoneRepair,PreOwnedPhones,WarrantyPage,EcommercePage };

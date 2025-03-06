@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, ExtraNavbar, Footer } from "./defaults";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ForSale, ForRent, NewProperty, Blogs, ContactUs, WhyUs, Services, AboutUs, WhatWeDo, HowWeWork, DetailedView, BlogDetail, CellPhoneShop, DeviceRepairBooking, Samsung, PhoneBatteryRepair, PhoneScreenRepair, PhoneChargingPortRepair, IphoneRepair, PreOwnedPhones, WarrantyPage } from "./pages";
+import { ForSale, ForRent, NewProperty, Blogs, ContactUs, WhyUs, Services, AboutUs, WhatWeDo, HowWeWork, DetailedView, BlogDetail, CellPhoneShop, DeviceRepairBooking, Samsung, PhoneBatteryRepair, PhoneScreenRepair, PhoneChargingPortRepair, IphoneRepair, PreOwnedPhones, WarrantyPage, EcommercePage } from "./pages";
 import { MainScreen } from "./screens";
 
 const Main = () => {
@@ -69,6 +69,7 @@ const Main = () => {
           <Route path="/IphoneRepair" element={<IphoneRepair/>}/>
           <Route path="/PreOwnedPhones" element={<PreOwnedPhones/>}/>
           <Route path="/WarrantyPage" element={<WarrantyPage/>}/>
+          <Route path="/EcommercePage" element={<EcommercePage/>}/>
         </Routes>
         <Footer />
       </div>
