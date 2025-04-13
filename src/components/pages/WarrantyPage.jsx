@@ -7,7 +7,7 @@ const WarrantyPage = () => {
       
       {/* Repair Warranty */}
       <div className="mb-8">
-        <h2 className="text-xl md:text-2xl font-semibold text-brown-500">Repair Warranty</h2>
+        <h2 className="text-xl md:text-2xl font-semibold text-amber-400">Repair Warranty</h2>
         <h3 className="text-lg md:text-xl font-semibold mt-4">Limited Lifetime Warranty</h3>
         <p className="mt-2 text-gray-700 text-sm md:text-base">
           At wheatcitymobilemart, all of our repairs are covered by our Limited Lifetime Warranty. This warranty covers both the parts and labor of the repair we performed. In the unlikely event that one of our parts or repairs fails, we will fix it free of charge.
@@ -19,7 +19,7 @@ const WarrantyPage = () => {
       
       {/* Refurbished Phone Warranty */}
       <div className="mb-8">
-        <h2 className="text-xl md:text-2xl font-semibold text-amber-300">Used Phone Warranty</h2>
+        <h2 className="text-xl md:text-2xl font-semibold text-amber-400">Used Phone Warranty</h2>
         <h3 className="text-lg md:text-xl font-semibold mt-4">6-Month Warranty</h3>
         <p className="mt-2 text-gray-700 text-sm md:text-base">
           We offer a 6-month warranty on all of our devices. If your device does not operate correctly, we will make it right.
@@ -55,7 +55,7 @@ const WarrantyPage = () => {
       <div>
         <h2 className="text-lg md:text-xl font-semibold mt-4">Filing A Warranty Claim</h2>
         <p className="mt-2 text-gray-700 text-sm md:text-base">
-          If your device fails within 6 months of purchase, bring it to any <span className="text-amber-300 font-semibold">wheatcitymobilemart location</span> for testing. If purchased online, call us at <span className="font-semibold">204-725-0858</span>, and we will arrange shipping at no cost if covered under warranty.
+          If your device fails within 6 months of purchase, bring it to any <span className="text-amber-400 font-semibold">wheatcitymobilemart location</span> for testing. If purchased online, call us at <span className="font-semibold">204-725-0858</span>, and we will arrange shipping at no cost if covered under warranty.
         </p>
         <p className="mt-2 text-gray-700 text-sm md:text-base">
           If we cannot repair your device, it will be replaced with the same or an equivalent model.
