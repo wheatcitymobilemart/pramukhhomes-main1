@@ -1,5 +1,5 @@
 import React from "react";
-import { Home, NewAdded, Looking, ClientTestimonials } from "../pages";
+import { Home, NewAdded, Looking, ClientTestimonials, NewPhoneadd } from "../pages";
 import { useNavigate } from "react-router-dom";
 
 const MainScreen = () => {
@@ -12,10 +12,11 @@ const MainScreen = () => {
   return (
     <div>
       <Home />
-      <div className="flex justify-center items-center bg-blue-800 font-body text-3xl text-white py-2 underline underline-offset-4 rounded-t-2xl -mt-4">
+      <div className="flex justify-center items-center bg-brown-500 font-body text-3xl text-white py-2 underline underline-offset-4 rounded-t-2xl -mt-4">
         Recent Products
       </div> 
-       <NewAdded />
+       {/* <NewAdded /> */}
+       <NewPhoneadd/>
       <div className="h-12 bg-gradient-to-t from-blue-500 to-blue-500"></div>
       <Looking />
       <div className="container mx-auto p-12 text-center">

@@ -104,13 +104,13 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
+      if (window.innerWidth >= 768) {
       if (currentScrollY === 0) {
         setHideExtraNavbar(true);
       } else if (currentScrollY > scrollY) {
         setHideExtraNavbar(false);
       }
-
+    }
       setScrollY(currentScrollY);
     };
 
@@ -127,109 +127,120 @@ const Navbar = () => {
   };
 
   return (
-    <header className={navbarStyles.backgroundColor}>
+    <header className={navbarStyles.backgroundColor }>
       <div
         className={`${navbarStyles.backgroundColor} container mx-auto flex justify-center border-b-2 border-blue-100 items-center p-4 ${
           hideExtraNavbar ? "hidden" : ""
         }`}
       >
-        <img src={logo2} alt="Better Business Sales" className="h-28 w-1/2 bg-blue-50 " />
+        <img src={logo2} alt="WheatCityMoblieMart" className="h-28 w-1/2 bg-blue-50 hidden md:block" />
       </div>
       {isMobileOrTablet ? (
         <nav className={navbarStyles.backgroundColor}>
           <div className="container mx-auto flex justify-between items-center p-4">
+            {/* Burger icon */}
             <FaBars
-              className={`${navbarStyles.headerTextColor} h-6 w-6`}
+              className={`${navbarStyles.headerTextColor} h-8 w-8`} // Increased size for better visibility
               onClick={toggleSidebar}
             />
 
-            <motion.div
-              className={`fixed top-0 left-0 h-full w-3/4 ${navbarStyles.backgroundColor} z-50 p-4 ${
-                isSidebarOpen ? "block" : "hidden"
-              }`}
-              initial="hidden"
-              animate={isSidebarOpen ? "visible" : "hidden"}
-              variants={sidebarVariants}
+                      {/* Logo */}
+            <img
+              src={logo2}
+              alt="WheatCityMoblieMart"
+              className="h-16 w-auto bg-blue-50 block md:hidden" // Visible only on screens smaller than 768px
+            />
+
+            {/* Hidden placeholder for alignment */}
+            <div className="w-8"></div>
+          </div>
+          {/* Sidebar */}
+          <motion.div
+            className={`fixed top-0 left-0 h-full w-3/4 ${navbarStyles.backgroundColor} z-50 p-4 ${
+              isSidebarOpen ? "block" : "hidden"
+            }`}
+            initial="hidden"
+            animate={isSidebarOpen ? "visible" : "hidden"}
+            variants={sidebarVariants}
+          >
+            <div className="flex justify-end mb-4">
+              <FaTimes
+                className={`${navbarStyles.headerTextColor} h-6 w-6`}
+                onClick={toggleSidebar}
+              />
+            </div>
+            <motion.ul
+              className={`${navbarStyles.headerTextColor} space-y-4`}
             >
-              <div className="flex justify-end mb-4">
-                <FaTimes
-                  className={`${navbarStyles.headerTextColor} h-6 w-6`}
-                  onClick={toggleSidebar}
-                />
-              </div>
-              <motion.ul
-                className={`${navbarStyles.headerTextColor} space-y-4`}
-              >
-                {navItems.map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className="relative"
-                    variants={itemVariants}
-                  >
-                    {item.dropdown ? (
-                      <div className="relative">
-                        <button
-                          className={`block px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
-                            isDropdownActive(item.dropdown)
-                              ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                              : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:${navbarStyles.hoverTextColor} hover:${navbarStyles.hoverBgColor}`
-                          }`}
-                          onClick={() => toggleDropdown(index)}
-                        >
-                          {item.name}
-                          <FaChevronDown className="inline-block ml-2" />
-                        </button>
-                        {dropdownStates[index] && (
-                          <motion.ul
-                            className="absolute left-0 top-full mt-2 bg-transparent shadow-lg rounded-lg w-full z-50"
-                            initial="hidden"
-                            animate={
-                              dropdownStates[index] ? "visible" : "hidden"
-                            }
-                            variants={sidebarVariants}
-                          >
-                            {item.dropdown.map((subItem, subIndex) => (
-                              <motion.li key={subIndex} variants={itemVariants}>
-                                <Link
-                                  to={subItem.href}
-                                  className={`block px-4 py-2 rounded-md transition-all duration-500 ease-in-out ${
-                                    location.pathname === subItem.href
-                                      ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
-                                      : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:${navbarStyles.hoverTextColor} hover:${navbarStyles.hoverBgColor}`
-                                  }`}
-                                  onClick={() => {
-                                    closeAllDropdowns();
-                                    toggleSidebar();
-                                  }}
-                                >
-                                  {subItem.name}
-                                </Link>
-                              </motion.li>
-                            ))}
-                          </motion.ul>
-                        )}
-                      </div>
-                    ) : (
-                      <Link
-                        to={item.href}
+              {navItems.map((item, index) => (
+                <motion.li
+                  key={index}
+                  className="relative"
+                  variants={itemVariants}
+                >
+                  {item.dropdown ? (
+                    <div className="relative">
+                      <button
                         className={`block px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
-                          location.pathname === item.href
+                          isDropdownActive(item.dropdown)
                             ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
                             : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:${navbarStyles.hoverTextColor} hover:${navbarStyles.hoverBgColor}`
                         }`}
-                        onClick={() => {
-                          closeAllDropdowns();
-                          toggleSidebar();
-                        }}
+                        onClick={() => toggleDropdown(index)}
                       >
                         {item.name}
-                      </Link>
-                    )}
-                  </motion.li>
-                ))}
-              </motion.ul>
-            </motion.div>
-          </div>
+                        <FaChevronDown className="inline-block ml-2" />
+                      </button>
+                      {dropdownStates[index] && (
+                        <motion.ul
+                          className="absolute left-0 top-full mt-2 bg-transparent shadow-lg rounded-lg w-full z-50"
+                          initial="hidden"
+                          animate={
+                            dropdownStates[index] ? "visible" : "hidden"
+                          }
+                          variants={sidebarVariants}
+                        >
+                          {item.dropdown.map((subItem, subIndex) => (
+                            <motion.li key={subIndex} variants={itemVariants}>
+                              <Link
+                                to={subItem.href}
+                                className={`block px-4 py-2 rounded-md transition-all duration-500 ease-in-out ${
+                                  location.pathname === subItem.href
+                                    ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
+                                    : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:${navbarStyles.hoverTextColor} hover:${navbarStyles.hoverBgColor}`
+                                }`}
+                                onClick={() => {
+                                  closeAllDropdowns();
+                                  toggleSidebar();
+                                }}
+                              >
+                                {subItem.name}
+                              </Link>
+                            </motion.li>
+                          ))}
+                        </motion.ul>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.href}
+                      className={`block px-4 py-2 rounded-lg transition-all duration-500 ease-in-out ${
+                        location.pathname === item.href
+                          ? `${navbarStyles.activeTextColor} ${navbarStyles.activeBgColor}`
+                          : `${navbarStyles.headerTextColor} ${navbarStyles.defaultBgColor} hover:${navbarStyles.hoverTextColor} hover:${navbarStyles.hoverBgColor}`
+                      }`}
+                      onClick={() => {
+                        closeAllDropdowns();
+                        toggleSidebar();
+                      }}
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </motion.li>
+              ))}
+            </motion.ul>
+          </motion.div>
         </nav>
       ) : (
         <nav className={navbarStyles.backgroundColor}>

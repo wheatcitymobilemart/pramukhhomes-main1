@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, ExtraNavbar, Footer } from "./defaults";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ForSale, ForRent, NewProperty, Blogs, ContactUs, WhyUs, Services, AboutUs, WhatWeDo, HowWeWork, DetailedView, BlogDetail, CellPhoneShop, DeviceRepairBooking, Samsung, PhoneBatteryRepair, PhoneScreenRepair, PhoneChargingPortRepair, IphoneRepair, PreOwnedPhones, WarrantyPage, EcommercePage } from "./pages";
+import { ForSale, ForRent, NewProperty, Blogs, ContactUs, WhyUs, Services, AboutUs,
+   WhatWeDo, HowWeWork, DetailedView, BlogDetail, CellPhoneShop, DeviceRepairBooking, 
+   Samsung, PhoneBatteryRepair, PhoneScreenRepair, PhoneChargingPortRepair, IphoneRepair,
+    PreOwnedPhones, WarrantyPage, EcommercePage, ProductShowcase } from "./pages";
 import { MainScreen } from "./screens";
 
 const Main = () => {
   const [scrollY, setScrollY] = useState(0);
   const [hideExtraNavbar, setHideExtraNavbar] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
+      
       if (currentScrollY === 0) {
         // At the top of the page
         setHideExtraNavbar(false);
@@ -19,7 +23,8 @@ const Main = () => {
         // Scrolling down
         setHideExtraNavbar(true);
       }
-
+      if (window.innerWidth >= 768) {setIsMobile(false);}
+      else {setIsMobile(true);}
       setScrollY(currentScrollY);
     };
 
@@ -36,6 +41,8 @@ const Main = () => {
         <div
           className={`z-50 top-0 transition-transform duration-300 ${
             hideExtraNavbar ? "-translate-y-full duration-300" : ""
+          } ${
+            isMobile ? "hidden" : "top-0"
           }`}
         >
           <ExtraNavbar />
@@ -44,13 +51,14 @@ const Main = () => {
         <div
           className={`fixed w-full z-40 transition-transform duration-300 ${
             hideExtraNavbar ? "top-0" : ""
-          }`}
+          } ${  isMobile ? "top=-0" : ""}`
+        }
         >
           <Navbar />
         </div>
         <Routes>
           <Route path="/" element={<MainScreen />} />
-          <Route path="/Projects" element={<ForSale />} />
+          <Route path="/Projects" element={<ProductShowcase/>} />
           <Route path="/DetailedView" element={<DetailedView />} />
           <Route path="/OurServices" element={<Services />} />
           <Route path="/WhyUs" element={<WhyUs />} />
