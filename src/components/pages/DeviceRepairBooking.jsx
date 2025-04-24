@@ -16,13 +16,14 @@ const DeviceRepairBooking = () => {
   const [selectedDevice, setSelectedDevice] = useState(null);
 
   const devices = [
-    { name: "Other", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1655754652858x551740936354916000%2F515588-200.png?w=96&h=96&auto=compress&dpr=1&fit=max" },
     { name: "Apple iPhone", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1591657323342x484592459219140000%2Fip11%2520promax.png?w=96&h=96&auto=compress&dpr=1&fit=max" },
     { name: "Apple iPad", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1650386652456x461199547174957700%2Fimages.jpg?w=96&h=96&auto=compress&dpr=1&fit=max" },
     { name: "Samsung", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1591657344506x998662844535159900%2FNote10plus.png?w=96&h=96&auto=compress&dpr=1&fit=max" },
     { name: "Battery", image: "https://tse3.mm.bing.net/th?id=OIP.WeBVUnTk8T0wCVKTXh89yAHaFU&w=340&h=340&c=7" },
     { name: "Screen", image: "https://d3nevzfk7ii3be.cloudfront.net/igi/nKTJX11kD1JwUlnk.full" },
     { name: "Charging Port", image: "https://i.ytimg.com/vi/qROumL9LLUM/maxresdefault.jpg" },
+    { name: "Other", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1655754652858x551740936354916000%2F515588-200.png?w=96&h=96&auto=compress&dpr=1&fit=max" },
+
   ];
 
   const models = {
@@ -61,68 +62,96 @@ const DeviceRepairBooking = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4 sm:p-6 md:p-8 lg:p-10">
-      <h1 className="text-xl sm:text-2xl font-bold text-center">Get A Quote - Book A Repair</h1>
-      <div className="flex flex-col sm:flex-row justify-between text-center my-6 gap-4">
-        <div className="flex-1">
-          <span className="text-orange-500 text-2xl font-bold">1</span>
-          <p>Choose a location.</p>
-        </div>
-        <div className="flex-1">
-          <span className="text-orange-500 text-2xl font-bold">2</span>
-          <p>Tell us about your device for an instant quote.</p>
-        </div>
-        <div className="flex-1">
-          <span className="text-orange-500 text-2xl font-bold">3</span>
-          <p>Choose a time and date.</p>
-        </div>
+    <div className="max-w-5xl mx-auto p-6 sm:p-8 md:p-10 bg-gradient-to-b from-gray-100 to-white rounded-lg shadow-lg">
+    <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8">
+      Get A Quote - Book A Repair
+    </h1>
+    <div className="flex flex-col sm:flex-row justify-between text-center my-6 gap-6">
+      <div className="flex-1">
+        <span className="text-blue-500 text-3xl font-bold">1</span>
+        <p className="text-gray-700 mt-2">Choose a location.</p>
       </div>
-
-      <div className="bg-white shadow-md rounded-lg p-4 sm:p-6">
-        {selectedDevice && models[selectedDevice] ? (
-          <div>
-            <button
-              onClick={() => setSelectedDevice(null)}
-              className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg mb-4"
-            >
-              ← Back
-            </button>
-            <h2 className="text-lg sm:text-xl font-semibold text-center">Select Your Model</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-96 overflow-y-auto">
-              {models[selectedDevice].map((model) => (
-                <Card key={model.name} className="p-4 text-center">
-                  <CardHeader floated={false} shadow={false} className="h-32">
-                    <img src={model.image} alt={model.name} className="w-full h-full object-cover" />
-                  </CardHeader>
-                  <CardBody>
-                    <Typography className="font-medium">{model.name}</Typography>
-                    <button className="mt-2 px-4 py-2 bg-orange-500 text-white rounded-lg">
-                      Select Service
-                    </button>
-                  </CardBody>
-                </Card>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div>
-            <h2 className="text-lg sm:text-xl font-semibold mb-4 text-center">What type of device do you have?</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-96 overflow-y-auto">
-              {devices.map((device) => (
-                <button
-                  key={device.name}
-                  onClick={() => setSelectedDevice(device.name)}
-                  className="w-full flex items-center p-4 border rounded-lg hover:bg-gray-100 transition"
-                >
-                  <img src={device.image} alt={device.name} className="w-12 h-12 rounded-md mr-4" />
-                  <span className="text-lg font-medium">{device.name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+      <div className="flex-1">
+        <span className="text-blue-500 text-3xl font-bold">2</span>
+        <p className="text-gray-700 mt-2">Tell us about your device for an instant quote.</p>
+      </div>
+      <div className="flex-1">
+        <span className="text-blue-500 text-3xl font-bold">3</span>
+        <p className="text-gray-700 mt-2">Choose a time and date.</p>
       </div>
     </div>
+
+       <div className="bg-white shadow-lg rounded-lg p-6">
+      {selectedDevice && models[selectedDevice] ? (
+        <div>
+          <button
+            onClick={() => setSelectedDevice(null)}
+            className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg mb-4 hover:bg-gray-300 transition"
+          >
+            ← Back
+          </button>
+          <h2 className="text-lg sm:text-xl font-semibold text-center text-gray-800 mb-6">
+            Select Your Model
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {models[selectedDevice].map((model) => (
+              <Card
+                key={model.name}
+                className="p-4 text-center shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 rounded-2xl"
+              >
+                <CardHeader
+                  floated={false}
+                  shadow={false}
+                  className="h-48 flex items-center justify-center bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg"
+                >
+                  <img
+                    src={model.image}
+                    alt={model.name}
+                    className="w-full h-full object-contain rounded-md"
+                  />
+                </CardHeader>
+                <CardBody>
+                  <Typography className="font-medium text-gray-800">
+                    {model.name}
+                  </Typography>
+                  <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                    Select Service
+                  </button>
+                </CardBody>
+              </Card>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div>
+          <h2 className="text-lg sm:text-xl font-semibold mb-6 text-center text-gray-800">
+            What type of device do you have?
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {devices.map((device) => (
+              <button
+                key={device.name}
+                onClick={() => setSelectedDevice(device.name)}
+                className="w-full flex items-center p-4 border rounded-lg bg-gradient-to-b from-gray-100 to-white shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="relative">
+                  <img
+                    src={device.image}
+                    alt={device.name}
+                    className="w-16 h-16 rounded-full shadow-md transform hover:scale-110 transition-all duration-300"
+                  />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-b from-transparent to-black opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+                </div>
+                <span className="text-lg font-medium text-gray-800 ml-4">
+                  {device.name}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
   );
 };
 
