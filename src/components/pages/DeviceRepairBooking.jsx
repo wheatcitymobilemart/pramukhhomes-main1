@@ -14,6 +14,7 @@ const fadeInUp = {
 
 const DeviceRepairBooking = () => {
   const [selectedDevice, setSelectedDevice] = useState(null);
+  const [selectedModel, setSelectedModel] = useState(null);
 
   const devices = [
     { name: "Apple iPhone", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1591657323342x484592459219140000%2Fip11%2520promax.png?w=96&h=96&auto=compress&dpr=1&fit=max" },
@@ -60,10 +61,27 @@ const DeviceRepairBooking = () => {
       { name: "Charging Port Repair", image: "https://via.placeholder.com/150" },
     ],
   };
+  const repairOptions = [
+    {
+      name: "Screen Replacement",
+      image: "https://via.placeholder.com/150?text=Screen+Replacement"
+    },
+    {
+      name: "Charging Port Replacement",
+      image: "https://via.placeholder.com/150?text=Charging+Port"
+    },
+    {
+      name: "Back Glass Replacement",
+      image: "https://via.placeholder.com/150?text=Back+Glass"
+    }
+  ];
 
   return (
     <div className="max-w-5xl mx-auto p-6 sm:p-8 md:p-10 bg-gradient-to-b from-gray-100 to-white rounded-lg shadow-lg">
-    <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8">
+      <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8">
+        Get A Quote - Book A Repair
+      </h1>
+      {/* <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8">
       Get A Quote - Book A Repair
     </h1>
     <div className="flex flex-col sm:flex-row justify-between text-center my-6 gap-6">
@@ -79,10 +97,48 @@ const DeviceRepairBooking = () => {
         <span className="text-blue-500 text-3xl font-bold">3</span>
         <p className="text-gray-700 mt-2">Choose a time and date.</p>
       </div>
-    </div>
-
-       <div className="bg-white shadow-lg rounded-lg p-6">
-      {selectedDevice && models[selectedDevice] ? (
+    </div> */}
+      {selectedDevice && selectedModel ? (
+        <div>
+          <button
+            onClick={() => setSelectedModel(null)}
+            className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg mb-4 hover:bg-gray-300 transition"
+          >
+            ← Back
+          </button>
+          <h2 className="text-lg sm:text-xl font-semibold text-center text-gray-800 mb-6">
+            Select Repair Type for {selectedModel}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {repairOptions.map((option) => (
+              <Card
+                key={option.name}
+                className="p-4 text-center shadow-md hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 rounded-2xl"
+              >
+                <CardHeader
+                  floated={false}
+                  shadow={false}
+                  className="h-48 flex items-center justify-center bg-gradient-to-b from-gray-100 to-gray-200 rounded-lg"
+                >
+                  <img
+                    src={option.image}
+                    alt={option.name}
+                    className="w-full h-full object-contain rounded-md"
+                  />
+                </CardHeader>
+                <CardBody>
+                  <Typography className="font-medium text-gray-800">
+                    {option.name}
+                  </Typography>
+                  <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                    Proceed
+                  </button>
+                </CardBody>
+              </Card>
+            ))}
+          </div>
+        </div>
+      ) : selectedDevice && models[selectedDevice] ? (
         <div>
           <button
             onClick={() => setSelectedDevice(null)}
@@ -114,7 +170,10 @@ const DeviceRepairBooking = () => {
                   <Typography className="font-medium text-gray-800">
                     {model.name}
                   </Typography>
-                  <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                  <button
+                    onClick={() => setSelectedModel(model.name)}
+                    className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+                  >
                     Select Service
                   </button>
                 </CardBody>
@@ -151,7 +210,6 @@ const DeviceRepairBooking = () => {
         </div>
       )}
     </div>
-  </div>
   );
 };
 

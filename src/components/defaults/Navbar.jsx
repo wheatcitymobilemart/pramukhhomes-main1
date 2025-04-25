@@ -134,7 +134,7 @@ const Navbar = () => {
         }`}
       >
         <img src={logo2} alt="WheatCityMoblieMart" className="h-28 w-1/2 bg-blue-50 hidden md:block" />
-      </div>
+      </div> 
       {isMobileOrTablet ? (
         <nav className={navbarStyles.backgroundColor}>
           <div className="container mx-auto flex justify-between items-center p-4">

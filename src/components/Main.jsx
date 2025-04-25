@@ -39,8 +39,8 @@ const Main = () => {
     <Router>
       <div>
         <div
-          className={`z-50 top-0 transition-transform duration-300 ${
-            hideExtraNavbar ? "-translate-y-full duration-300" : ""
+          className={`z-50 transition-transform duration-300 ${
+            hideExtraNavbar ? "-translate-y-full duration-300 top-0 " : ""
           } ${
             isMobile ? "hidden" : "top-0"
           }`}
@@ -51,7 +51,7 @@ const Main = () => {
         <div
           className={`fixed w-full z-40 transition-transform duration-300 ${
             hideExtraNavbar ? "top-0" : ""
-          } ${  isMobile ? "top=-0" : ""}`
+          } ${  isMobile ? "top-0" : ""}`
         }
         >
           <Navbar />
