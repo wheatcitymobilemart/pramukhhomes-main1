@@ -15,6 +15,8 @@ const fadeInUp = {
 const DeviceRepairBooking = () => {
   const [selectedDevice, setSelectedDevice] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
+  const [selectedRepairOption, setSelectedRepairOption] = useState(null);
+  const [showForm, setShowForm] = useState(false);
 
   const devices = [
     { name: "Apple iPhone", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1591657323342x484592459219140000%2Fip11%2520promax.png?w=96&h=96&auto=compress&dpr=1&fit=max" },
@@ -76,6 +78,10 @@ const DeviceRepairBooking = () => {
     }
   ];
 
+  const handleProceedToForm = () => {
+    setShowForm(true);
+  };
+
   return (
     <div className="max-w-5xl mx-auto p-6 sm:p-8 md:p-10 bg-gradient-to-b from-gray-100 to-white rounded-lg shadow-lg">
       <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8">
@@ -98,7 +104,76 @@ const DeviceRepairBooking = () => {
         <p className="text-gray-700 mt-2">Choose a time and date.</p>
       </div>
     </div> */}
-      {selectedDevice && selectedModel ? (
+      {showForm ? (
+        <div>
+              <button
+      onClick={() => setShowForm(false)}
+      className="mt-4 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition"
+    >
+      ← Back
+    </button>
+          <h2 className="text-lg sm:text-xl font-semibold text-center text-gray-800 mb-6">
+            Confirm Your Booking
+          </h2>
+          <div className="mb-4">
+            <p className="text-gray-700">
+              <strong>Selected Device:</strong> {selectedDevice}
+            </p>
+            <p className="text-gray-700">
+              <strong>Selected Model:</strong> {selectedModel}
+            </p>
+            <p className="text-gray-700">
+              <strong>Selected Repair Option:</strong> {selectedRepairOption}
+            </p>
+          </div>
+          <form className="space-y-4">
+            <div>
+              <label className="block text-gray-700 font-medium">Name</label>
+              <input
+                type="text"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your name"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium">Phone Number</label>
+              <input
+                type="tel"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your phone number"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium">Email</label>
+              <input
+                type="email"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your email"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium">Date</label>
+              <input
+                type="date"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium">Time</label>
+              <input
+                type="time"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition"
+            >
+              Confirm Booking
+            </button>
+          </form>
+        </div>
+      ) : selectedDevice && selectedModel ? (
         <div>
           <button
             onClick={() => setSelectedModel(null)}
@@ -130,9 +205,13 @@ const DeviceRepairBooking = () => {
                   <Typography className="font-medium text-gray-800">
                     {option.name}
                   </Typography>
-                  <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
-                    Proceed
-                  </button>
+             
+                   <button
+            onClick={() => {selectedRepairOption(option.name); handleProceedToForm();}}
+            className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition"
+          >
+            Proceed to Booking Form
+          </button>
                 </CardBody>
               </Card>
             ))}
