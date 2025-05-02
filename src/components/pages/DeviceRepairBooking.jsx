@@ -66,17 +66,109 @@ const DeviceRepairBooking = () => {
   const repairOptions = [
     {
       name: "Screen Replacement",
-      image: "https://via.placeholder.com/150?text=Screen+Replacement"
+      image: "https://tse2.mm.bing.net/th?id=OIP.mxcA3bLfAvR5bGSMp1WUKwHaFj&w=355&h=355&c=7"
     },
     {
       name: "Charging Port Replacement",
-      image: "https://via.placeholder.com/150?text=Charging+Port"
+      image: "https://tse3.mm.bing.net/th?id=OIP.B1ruV6qgWUK599Epyx1AVAHaFj&w=355&h=355&c=7"
     },
     {
       name: "Back Glass Replacement",
       image: "https://via.placeholder.com/150?text=Back+Glass"
-    }
+    },
+    {
+      name: "Battery Replacement",
+      image: "https://tse1.mm.bing.net/th?id=OIP.VM17EDx5ja0ckMUV1wX0MwHaHa&w=474&h=474&c=7"
+    },
+
   ];
+  const repairPrices = {
+    "iPhone 5, 5s, 6s, SE 1": {
+      "Back Glass Replacement": "$100",
+      "Charging Port Replacement": "$59",
+      "Battery Replacement": "$59",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 6+, 6s+": {
+      "Back Glass Replacement": "$115",
+      "Charging Port Replacement": "$59",
+      "Battery Replacement": "$65",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 7, 8": {
+      "Back Glass Replacement": "$139",
+      "Charging Port Replacement": "$69",
+      "Battery Replacement": "$65",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 7+, 8+": {
+      "Back Glass Replacement": "$149",
+      "Charging Port Replacement": "$79",
+      "Battery Replacement": "$69",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone X, XS, XR, XS MAX": {
+      "Back Glass Replacement": "$179",
+      "Charging Port Replacement": "$89",
+      "Battery Replacement": "$79",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 11, 11 PRO": {
+      "Back Glass Replacement": "$199",
+      "Charging Port Replacement": "$119",
+      "Battery Replacement": "$85",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 11 PRO MAX": {
+      "Back Glass Replacement": "$209",
+      "Charging Port Replacement": "$129",
+      "Battery Replacement": "$85",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 12, 12 PRO": {
+      "Back Glass Replacement": "$209",
+      "Charging Port Replacement": "$109",
+      "Battery Replacement": "$89",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 12 MINI": {
+      "Back Glass Replacement": "$209",
+      "Charging Port Replacement": "$109",
+      "Battery Replacement": "$85",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 12 PRO MAX": {
+      "Back Glass Replacement": "$249",
+      "Charging Port Replacement": "$129",
+      "Battery Replacement": "$95",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 13, 13 MINI": {
+      "Back Glass Replacement": "$279",
+      "Charging Port Replacement": "$119",
+      "Battery Replacement": "$95",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 13 PRO, 13 PRO MAX": {
+      "Back Glass Replacement": "$299",
+      "Charging Port Replacement": "$129",
+      "Battery Replacement": "$99",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 14, 14 PLUS": {
+      "Back Glass Replacement": "N/A",
+      "Charging Port Replacement": "$119",
+      "Battery Replacement": "$99",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 14 PRO, 14 PRO MAX": {
+      "Back Glass Replacement": "$319",
+      "Charging Port Replacement": "$129",
+      "Battery Replacement": "$109",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+  };
+  
 
   const handleProceedToForm = () => {
     setShowForm(true);
@@ -125,8 +217,25 @@ const DeviceRepairBooking = () => {
             <p className="text-gray-700">
               <strong>Selected Repair Option:</strong> {selectedRepairOption}
             </p>
+       
+            <p className="text-gray-700">
+            <strong>Repair Cost:</strong>{" "}
+            {repairPrices[selectedModel]?.[selectedRepairOption] || "Select a valid model and repair option"}
+          </p>
           </div>
           <form className="space-y-4">
+          {selectedRepairOption === "Screen Replacement" && (
+        <div>
+          <label className="block text-gray-700 font-medium">Screen Options</label>
+          <select
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option value="Standard Screen">Standard Screen - $75</option>
+            <option value="Premium Screen">Premium Screen - $85</option>
+            <option value="Ultra Screen">Ultra Screen - $150</option>
+          </select>
+        </div>
+      )}
             <div>
               <label className="block text-gray-700 font-medium">Name</label>
               <input
@@ -205,13 +314,15 @@ const DeviceRepairBooking = () => {
                   <Typography className="font-medium text-gray-800">
                     {option.name}
                   </Typography>
-             
-                   <button
-            onClick={() => {selectedRepairOption(option.name); handleProceedToForm();}}
-            className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition"
-          >
-            Proceed to Booking Form
-          </button>
+                  <button
+              onClick={() => {
+                setSelectedRepairOption(option.name); // Set the selected repair option
+                setShowForm(true); // Proceed to the form
+              }}
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+            >
+              Select Repair Option
+            </button>
                 </CardBody>
               </Card>
             ))}
