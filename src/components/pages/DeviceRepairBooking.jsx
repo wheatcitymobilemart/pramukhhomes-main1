@@ -34,8 +34,11 @@ const DeviceRepairBooking = () => {
       { name: "iPhone 15 Series", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1650484113460x817168539646562000%2FiPhone-13.png-img?w=384&h=&auto=compress&dpr=1&fit=max" },
       { name: "iPhone 14 Series", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1650484113460x817168539646562000%2FiPhone-13.png-img?w=384&h=&auto=compress&dpr=1&fit=max" },
       { name: "iPhone 13 Series", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1650484068941x299680912284330940%2FiPhone-13-ProMax.png-img?w=384&h=&auto=compress&dpr=1&fit=max" },
-      { name: "iPhone 12 Series", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1634225187354x425636073260317700%2F1-513da45be2-iphone-12-pro-max-graphite.jpg-img?w=384&h=&auto=compress&dpr=1&fit=max" },
-      { name: "iPhone 11 Series", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1591216754478x856860427574645600%2Fiphone-11-pro-max-midnight-green-select-2019.png-img?w=384&h=&auto=compress&dpr=1&fit=max" },
+      { name: "iPhone 12/12 PRO Series", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1634225187354x425636073260317700%2F1-513da45be2-iphone-12-pro-max-graphite.jpg-img?w=384&h=&auto=compress&dpr=1&fit=max" },
+      { name: "iPhone 12 MINI Series", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1634225187354x425636073260317700%2F1-513da45be2-iphone-12-pro-max-graphite.jpg-img?w=384&h=&auto=compress&dpr=1&fit=max" },
+      { name: "iPhone 12 PRO MAX", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1634225187354x425636073260317700%2F1-513da45be2-iphone-12-pro-max-graphite.jpg-img?w=384&h=&auto=compress&dpr=1&fit=max" },
+      { name: "iPhone 11/11 Pro Series", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1591216754478x856860427574645600%2Fiphone-11-pro-max-midnight-green-select-2019.png-img?w=384&h=&auto=compress&dpr=1&fit=max" },
+      { name: "iPhone 11 Pro MAX Series", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1591216754478x856860427574645600%2Fiphone-11-pro-max-midnight-green-select-2019.png-img?w=384&h=&auto=compress&dpr=1&fit=max" },
       { name: "iPhone X Series(X,XR,XS,XS Max)", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1591631754228x965867076669263400%2Fip%2520x%2520B.PNG-img?w=384&h=&auto=compress&dpr=1&fit=max" },
       { name: "iPhone 8 Series", image: "https://i5.walmartimages.com/asr/8c18c65e-4ca5-4a79-81d5-a86fa08e485e_1.0913880f10329a61618a972dc2ddccdd.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff" },
       { name: "iPhone 7 Series", image: "https://tse4.mm.bing.net/th?id=OIP.4AamZYllu-p9MzdVjOdkTgHaHa&pid=Api&P=0&h=180" },
@@ -83,19 +86,25 @@ const DeviceRepairBooking = () => {
 
   ];
   const repairPrices = {
-    "iPhone 5, 5s, 6s, SE 1": {
+    "iPhone 5 Series": {
       "Back Glass Replacement": "$100",
       "Charging Port Replacement": "$59",
       "Battery Replacement": "$59",
       "Screen Replacement": "Depends on the type of screen",
     },
-    "iPhone 6+, 6s+": {
+    "iPhone 6 Series": {
       "Back Glass Replacement": "$115",
       "Charging Port Replacement": "$59",
       "Battery Replacement": "$65",
       "Screen Replacement": "Depends on the type of screen",
     },
-    "iPhone 7, 8": {
+    "iPhone 7 Series": {
+      "Back Glass Replacement": "$139",
+      "Charging Port Replacement": "$69",
+      "Battery Replacement": "$65",
+      "Screen Replacement": "Depends on the type of screen",
+    },
+    "iPhone 8 Series": {
       "Back Glass Replacement": "$139",
       "Charging Port Replacement": "$69",
       "Battery Replacement": "$65",
@@ -107,31 +116,31 @@ const DeviceRepairBooking = () => {
       "Battery Replacement": "$69",
       "Screen Replacement": "Depends on the type of screen",
     },
-    "iPhone X, XS, XR, XS MAX": {
+    "iPhone X Series(X,XR,XS,XS Max)": {
       "Back Glass Replacement": "$179",
       "Charging Port Replacement": "$89",
       "Battery Replacement": "$79",
       "Screen Replacement": "Depends on the type of screen",
     },
-    "iPhone 11, 11 PRO": {
+    "iPhone 11/11 Pro Series": {
       "Back Glass Replacement": "$199",
       "Charging Port Replacement": "$119",
       "Battery Replacement": "$85",
       "Screen Replacement": "Depends on the type of screen",
     },
-    "iPhone 11 PRO MAX": {
+    "iPhone 11 PRO MAX Series": {
       "Back Glass Replacement": "$209",
       "Charging Port Replacement": "$129",
       "Battery Replacement": "$85",
       "Screen Replacement": "Depends on the type of screen",
     },
-    "iPhone 12, 12 PRO": {
+    "iPhone 12, 12 PRO Series": {
       "Back Glass Replacement": "$209",
       "Charging Port Replacement": "$109",
       "Battery Replacement": "$89",
       "Screen Replacement": "Depends on the type of screen",
     },
-    "iPhone 12 MINI": {
+    "iPhone 12 MINI Series": {
       "Back Glass Replacement": "$209",
       "Charging Port Replacement": "$109",
       "Battery Replacement": "$85",

@@ -12,7 +12,7 @@ const MainScreen = () => {
   return (
     <div>
       <Home />
-      <div className="flex justify-center items-center bg-brown-500 font-body text-3xl text-white py-2 underline underline-offset-4 rounded-t-2xl -mt-4">
+      <div className="flex justify-center items-center bg-blue-500 font-body text-3xl text-white py-2 underline underline-offset-4 rounded-t-2xl -mt-4">
         Recent Products
       </div> 
        {/* <NewAdded /> */}

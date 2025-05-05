@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import {  client } from "../../assets";
 
 const ClientTestimonials = () => {
-  const testimonials = [ { text: "Stay ahead with the latest phones and unbeatable deals!", author: "Wheat City Mobile Mart", }, { text: "Fast, reliable repairs for all your mobile needs!", author: "Wheat City Mobile Repairs", }, { text: "Upgrade, connect, and experience the future today!", author: "Wheat City Mobile Mart", }, { text: "Cracked screen? Dead battery? We’ve got you covered!", author: "Wheat City Mobile Repairs", }, ];
+  const testimonials = [ { text: "Found a decent case here , paid $30 for it . Went home and found the exact same case on Amazon for $15 . 3 stars because their prices are pretty high for the cases they have ..no name brand cases at all . The convenience of getting a case the same day instead of online shopping is nice tho ... just wish the prices were in line with Amazon.. update ! The team there has helped me with the issue and made sure I was happy and well taken care of.", author: "Denis Deurbrouck", }, 
+    { text: "Outstanding service, superior quality, and exceptional prices; if you are seeking a secure place to make your purchases, look no further than this one.", author: "Alfredo Mmtt", },
+     { text: "Just bought some accessories today from Wheat City Mobile Mart. Their products are amazing. Enjoyed it . Highly recommended. Visit this local business.", author: "Tanay Gajjar", }, 
+     { text: "Needed my cracked phone fixed. They are very helpful and got the job done in a timely manner very very satisfied.", author: "Tannis Tereck", }, 
+    ];
 
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -11,7 +15,7 @@ const ClientTestimonials = () => {
       setCurrentTestimonial(
         (prevIndex) => (prevIndex + 1) % testimonials.length
       );
-    }, 3000); // Change every 3 seconds
+    }, 6000); // Change every 3 seconds
 
     return () => clearInterval(interval);
   }, [testimonials.length]);

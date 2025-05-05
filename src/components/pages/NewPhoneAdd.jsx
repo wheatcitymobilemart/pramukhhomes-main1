@@ -192,7 +192,7 @@ const NewPhoneAdd = () => {
 
   return (
     <Carousel
-      className="bg-gray-300  py-8"
+      className="bg-gradient-to-t from-blue-400 to-blue-100  py-8"
       navigation={({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-2 left-2/4 flex -translate-x-2/4 gap-2">
           {new Array(length).fill("").map((_, i) => (
