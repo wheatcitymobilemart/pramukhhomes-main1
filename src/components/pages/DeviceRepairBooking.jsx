@@ -18,6 +18,12 @@ const DeviceRepairBooking = () => {
   const [selectedRepairOption, setSelectedRepairOption] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+
   const devices = [
     { name: "Apple iPhone", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1591657323342x484592459219140000%2Fip11%2520promax.png?w=96&h=96&auto=compress&dpr=1&fit=max" },
     { name: "Apple iPad", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1650386652456x461199547174957700%2Fimages.jpg?w=96&h=96&auto=compress&dpr=1&fit=max" },
@@ -182,7 +188,36 @@ const DeviceRepairBooking = () => {
   const handleProceedToForm = () => {
     setShowForm(true);
   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = {
+      name,
+      email,
+      phone,
+      date,
+      time,
+      screenOption: selectedRepairOption === "Screen Replacement" ? "Standard Screen" : null, // Example
+    };
 
+    try {
+      const response = await fetch("http://localhost:5000/api/send-booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert("Booking submitted and email sent!");
+      } else {
+        alert("Failed to send booking email.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred.");
+    }
+  };
+
+  
   return (
     <div className="max-w-5xl mx-auto p-6 sm:p-8 md:p-10 bg-gradient-to-b from-gray-100 to-white rounded-lg shadow-lg">
       <h1 className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-8">
@@ -232,7 +267,7 @@ const DeviceRepairBooking = () => {
             {repairPrices[selectedModel]?.[selectedRepairOption] || "Select a valid model and repair option"}
           </p>
           </div>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
           {selectedRepairOption === "Screen Replacement" && (
         <div>
           <label className="block text-gray-700 font-medium">Screen Options</label>
@@ -245,34 +280,42 @@ const DeviceRepairBooking = () => {
           </select>
         </div>
       )}
-            <div>
+             <div>
               <label className="block text-gray-700 font-medium">Name</label>
               <input
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your name"
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 font-medium">Phone Number</label>
-              <input
-                type="tel"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Enter your phone number"
               />
             </div>
             <div>
               <label className="block text-gray-700 font-medium">Email</label>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Enter your email"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium">Phone Number</label>
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="Enter your phone number"
               />
             </div>
             <div>
               <label className="block text-gray-700 font-medium">Date</label>
               <input
                 type="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -280,6 +323,8 @@ const DeviceRepairBooking = () => {
               <label className="block text-gray-700 font-medium">Time</label>
               <input
                 type="time"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
