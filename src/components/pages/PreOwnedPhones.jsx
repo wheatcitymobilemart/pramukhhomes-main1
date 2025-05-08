@@ -67,7 +67,7 @@ const PreOwnedPhones = () => {
           New phones today are becoming more and more expensive. Save some
           money and buy a refurbished cell phone that will cost considerably
           less than buying new. All cell phones have been inspected by one of
-          our Wheat City Mobile Martand come with a 6-month warranty. Shop online or
+          our Wheat City Mobile Mart and come with a 6-month warranty. Shop online or
           in one of our stores with the confidence of knowing you’re buying a
           tested device from a reputable seller. We offer refurbished iPhones,
           refurbished Samsungs, and more.
