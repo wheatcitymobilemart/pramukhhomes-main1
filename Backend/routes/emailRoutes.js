@@ -1,4 +1,3 @@
-// backend/routes/emailRoutes.js
 require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
@@ -9,13 +8,18 @@ const { EMAIL_USER, EMAIL_PASS, RECEIVER_EMAIL } = process.env;
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: EMAIL_USER,
+    pass: EMAIL_PASS,
   },
 });
 
 router.post("/send-booking", async (req, res) => {
-  const { name, email, phone, date, time, screenOption } = req.body;
+  const { name, email, phone, date, time,screenOption,selectedDevice, selectedModel, selectedRepairOption,repairPrices } = req.body;
+
+  // Validate required fields
+  if (!name || !email || !phone || !date || !time || !selectedModel || !selectedRepairOption) {
+    return res.status(400).json({ message: "Missing required fields" });
+  }
 
   const mailOptions = {
     from: `"${name}" <${email}>`,
@@ -28,6 +32,10 @@ router.post("/send-booking", async (req, res) => {
       <p><strong>Phone:</strong> ${phone}</p>
       <p><strong>Date:</strong> ${date}</p>
       <p><strong>Time:</strong> ${time}</p>
+      <p><strong>Device:</strong> ${selectedDevice}</p>
+      <p><strong>Selected Model:</strong> ${selectedModel}</p>
+      <p><strong>Selected Repair Option:</strong> ${selectedRepairOption}</p>
+      <p><strong>Repair Prices:</strong> ${repairPrices}</p>
       ${screenOption ? `<p><strong>Screen Option:</strong> ${screenOption}</p>` : ""}
     `,
   };

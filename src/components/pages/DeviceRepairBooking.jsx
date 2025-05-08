@@ -23,6 +23,8 @@ const DeviceRepairBooking = () => {
   const [phone, setPhone] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [screenOption, setScreenOption] = useState(""); // State for screen option
+
 
   const devices = [
     { name: "Apple iPhone", image: "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2Fac839d283c0da1e41ccacc88b32954a7.cdn.bubble.io%2Ff1591657323342x484592459219140000%2Fip11%2520promax.png?w=96&h=96&auto=compress&dpr=1&fit=max" },
@@ -196,9 +198,13 @@ const DeviceRepairBooking = () => {
       phone,
       date,
       time,
-      screenOption: selectedRepairOption === "Screen Replacement" ? "Standard Screen" : null, // Example
+      screenOption: selectedRepairOption === "Screen Replacement" ? screenOption : null, 
+      selectedDevice, 
+      selectedModel, 
+      selectedRepairOption, 
+      repairPrices: repairPrices[selectedModel]?.[selectedRepairOption] || "N/A",
     };
-
+    console.log("Form Data:", formData); // Debugging: Log formData to ensure values are correct
     try {
       const response = await fetch("http://localhost:5000/api/send-booking", {
         method: "POST",
@@ -272,6 +278,8 @@ const DeviceRepairBooking = () => {
         <div>
           <label className="block text-gray-700 font-medium">Screen Options</label>
           <select
+            value={screenOption}
+            onChange={(e) => setScreenOption(e.target.value)} // Bind to state
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="Standard Screen">Standard Screen - $75</option>
