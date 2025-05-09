@@ -6,6 +6,7 @@ import NewProperty from "./NewProperty";
 import Blogs from "./Blogs";
 import ContactUs from "./ContactUs";
 import NewAdded from "./NewAdded"
+import NewPhoneadd from "./NewPhoneAdd"
 import Looking from "./Looking";
 import WhyUs from "./WhyUs";
 import Services from "./Services";
@@ -25,4 +26,9 @@ import IphoneRepair from "./IphoneRepair";
 import PreOwnedPhones from "./PreOwnedPhones";
 import WarrantyPage from "./WarrantyPage";
 import EcommercePage from "./EcommercePage";
-export { Home, ForSale, ForRent, NewProperty, Blogs, ContactUs, NewAdded, Looking, WhyUs, Services, AboutUs, WhatWeDo, HowWeWork, DetailedView, BlogDetail, ClientTestimonials,CellPhoneShop,DeviceRepairBooking,Samsung,PhoneBatteryRepair,PhoneScreenRepair,PhoneChargingPortRepair,IphoneRepair,PreOwnedPhones,WarrantyPage,EcommercePage };
+import ProductShowcase from "./ProductShowcase";
+export { Home, ForSale, ForRent, NewProperty, Blogs, ContactUs, NewAdded, 
+    Looking, WhyUs, Services, AboutUs, WhatWeDo, HowWeWork, DetailedView, BlogDetail,
+     ClientTestimonials,CellPhoneShop,DeviceRepairBooking,Samsung,PhoneBatteryRepair,
+     PhoneScreenRepair,PhoneChargingPortRepair,IphoneRepair,PreOwnedPhones,WarrantyPage,
+     EcommercePage,NewPhoneadd,ProductShowcase };

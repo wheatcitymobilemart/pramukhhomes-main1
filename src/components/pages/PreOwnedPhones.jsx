@@ -47,7 +47,7 @@ const PreOwnedPhones = () => {
     <div className="bg-gray-100">
       {/* Header Section */}
       <div
-        className="relative text-center bg-cover bg-center mt-16 py-16 h-42 px-4"
+        className="relative text-center bg-cover bg-center  py-16 h-42 px-4"
         style={{
           backgroundImage:
             'url("https://cellmechanics.ca/wp-content/uploads/2022/04/PhoneMix-New.webp")',
@@ -67,45 +67,61 @@ const PreOwnedPhones = () => {
           New phones today are becoming more and more expensive. Save some
           money and buy a refurbished cell phone that will cost considerably
           less than buying new. All cell phones have been inspected by one of
-          our Cell Mechanics and come with a 6-month warranty. Shop online or
+          our Wheat City Mobile Mart and come with a 6-month warranty. Shop online or
           in one of our stores with the confidence of knowing you’re buying a
           tested device from a reputable seller. We offer refurbished iPhones,
           refurbished Samsungs, and more.
         </p>
       </div>
 
-      {/* Product Categories */}
-      <div className="container mx-auto px-4 py-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
-        {[
-          {
-            src: "https://cellmechanics.ca/wp-content/uploads/2024/11/iPhones.webp",
-            alt: "iPhones",
-            label: "SHOP IPHONES",
-          },
-          {
-            src: "https://cellmechanics.ca/wp-content/uploads/2024/11/Androids.webp",
-            alt: "Android Phones",
-            label: "SHOP ANDROID PHONES",
-          },
-          {
-            src: "https://cellmechanics.ca/wp-content/uploads/2024/11/Accessories.webp",
-            alt: "Accessories",
-            label: "SHOP ACCESSORIES",
-          },
-        ].map((item, index) => (
-          <div key={index} className="flex flex-col items-center">
-            <img src={item.src} alt={item.alt} className="mx-auto w-full max-w-[250px]" />
-            <button className="bg-blue-700 transition-colors duration-700 ease-out hover:bg-yellow-600 text-white px-4 py-2 mt-4 rounded">
-              {item.label}
-            </button>
-          </div>
-        ))}
-      </div>
+      {/* Product Categories - Redesigned */}
+<div className="container mx-auto px-4 py-12">
+  <h2 className="text-xl md:text-2xl font-semibold text-center mb-8">
+    Explore Our Products
+  </h2>
+  <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {[
+      {
+        src: "https://cellmechanics.ca/wp-content/uploads/2024/11/iPhones.webp",
+        alt: "iPhones",
+        label: "SHOP IPHONES",
+      },
+      {
+        src: "https://cellmechanics.ca/wp-content/uploads/2024/11/Androids.webp",
+        alt: "Android Phones",
+        label: "SHOP ANDROID PHONES",
+      },
+      {
+        src: "https://cellmechanics.ca/wp-content/uploads/2024/11/Accessories.webp",
+        alt: "Accessories",
+        label: "SHOP ACCESSORIES",
+      },
+    ].map((item, index) => (
+      <motion.div
+        key={index}
+        className="relative overflow-hidden rounded-2xl shadow-md group transition-transform duration-500 hover:-translate-y-1"
+        whileHover={{ scale: 1.03 }}
+      >
+        <img
+          src={item.src}
+          alt={item.alt}
+          className="w-full h-64 object-cover transition-opacity duration-500 group-hover:opacity-80"
+        />
+        <div className="absolute inset-0 flex items-end justify-center bg-gradient-to-t from-black/70 to-transparent p-4">
+          <button className="bg-white text-blue-700 font-semibold px-4 py-2 rounded-lg transition-colors duration-300 hover:bg-yellow-500 hover:text-white shadow">
+            {item.label}
+          </button>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</div>
+
 
       {/* Why Buy Section */}
       <div className="bg-white py-10 px-4">
         <h2 className="text-xl md:text-2xl font-semibold text-center">
-          Why Buy A Cell Mechanics Certified Pre-Owned Cell Phone?
+          Why Buy A Wheat City Mobile MartCertified Pre-Owned Cell Phone?
         </h2>
         <motion.div
           ref={ref}
